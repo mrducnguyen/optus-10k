@@ -16,7 +16,19 @@ func main() {
 	dataMap := loadData()
 
 	http.HandleFunc("/check", func(w http.ResponseWriter, r *http.Request) {
-		query := strings.ToLower(html.EscapeString(r.URL.Query().Get("q")))
+		enableCors(&w)
+		if r.Method != "POST" {
+			w.WriteHeader(http.StatusBadRequest)
+			return
+		}
+
+		if err := r.ParseMultipartForm(1024); err != nil {
+			w.WriteHeader(http.StatusBadRequest)
+			fmt.Fprintf(w, "ParseForm() err: %v", err)
+			return
+		}
+
+		query := strings.ToLower(html.EscapeString(r.PostFormValue("q")))
 		fmt.Fprintf(w, strconv.FormatBool(dataMap[query]))
 	})
 
@@ -44,4 +56,8 @@ func loadData() map[string]bool {
 	}
 
 	return m
+}
+
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*.ducn.co")
 }

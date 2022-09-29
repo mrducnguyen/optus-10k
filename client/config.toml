@@ -1,3 +1,4 @@
-baseURL = 'http://example.org/'
-languageCode = 'en-us'
-title = 'My New Hugo Site'
+baseURL = 'https://optus10k.ducn.co/'
+languageCode = 'en-au'
+title = 'Check Optus 10.2k record leaked'
+theme = 'paper'
