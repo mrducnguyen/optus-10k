@@ -1,0 +1,10 @@
+<form id="checkForm" action="#" method="post" accept-charset="UTF-8">
+    <input class="input-query" type="text" name="q">
+    <button class="btn ml-auto" type="submit">Check</button>
+</form>
+
+<div id="result" class="check-result">
+</div>
+
+{{ $js := resources.Get "js/check.js" | minify }}
+<script src="{{ $js.Permalink }}"></script>

@@ -1,0 +1,58 @@
+.input-query {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    --tw-bg-opacity: 1;
+    background-color: rgb(100 100 100 / var(--tw-bg-opacity));
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+    border: 2px solid #000;
+    border-radius: 5px;
+
+    margin-bottom: 25px;
+
+    padding: 5px 15px;
+}
+
+.dark .input-query {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+    border: 2px solid #fff;
+}
+
+.check-result {
+    margin-top: 25px;
+    padding: 25px;
+    transition: all 1s;
+}
+
+.check-result.found {
+    background-color: #ef4444;
+    color: #fee2e2;
+}
+
+.check-result.found::before {
+    content: '';
+    background: url(./images/shield.svg) 0 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.check-result.not-found {
+    background-color: #fdba74;
+    color: #7c2d12;
+}
+
+.check-result.not-found::before {
+    content: '';
+    background: url(./images/check.svg) 0 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin-right: 15px;
+    vertical-align: middle;
+}
